@@ -40,8 +40,7 @@ module "eks" {
   cluster_endpoint_public_access  = true
 
   vpc_id                   = module.vpc.vpc_id
-  subnet_ids               = var.private_subnets
-
+  subnet_ids               = module.vpc.private_subnets
 
 
 
@@ -55,7 +54,7 @@ module "eks" {
          
     }
   }  
-  
+
   tags = {
     Environment = "dev"
     Terraform = "true"
