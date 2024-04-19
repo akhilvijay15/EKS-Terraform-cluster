@@ -14,9 +14,7 @@ module "vpc" {
 
 
   tags = {
-    Name = "k8's_cluster_vpc"
-    Terraform = "true"
-    Environment = "dev"
+    "kubernetes.io/cluster/my-eks-cluster" = "shared"
   }
 
   public_subnet_tags = {
