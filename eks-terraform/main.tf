@@ -18,15 +18,15 @@ module "vpc" {
   }
 
   public_subnet_tags = {
-    Name : "k8's-public_subnet"
-  
-}
+    "kubernetes.io/cluster/my-eks-cluster" = "shared"
+    "kubernetes.io/role/elb"               = 1
 
+  }
   private_subnet_tags = {
-    Name : "k8's-private_subnet"
-  
-}
+    "kubernetes.io/cluster/my-eks-cluster" = "shared"
+    "kubernetes.io/role/private_elb"       = 1
 
+  }
 }
 
 module "eks" {
